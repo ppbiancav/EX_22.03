@@ -1,25 +1,44 @@
-const leia = require('readline-sync');
+const readlinesync = require('readline-sync');
 
-let matriz = [
-[4.0, 5.0, 7.0, 3.0],
-[2.5, 6.5, 4.7, 8.0],
-[10.0, 8.5, 9.5, 8.0],
-[9.0, 6.5, 7.6, 8.2],
-[5.0, 5.0, 5.0, 6.3],
-[7.0, 8.0, 9.0, 8.5],
-[5.5, 3.5, 2.5, 1.0],
-[8.0, 9.0, 10.0, 9.5],
-[5.6, 5.8, 6.5, 7.0],
-[7.5, 8.5, 9.5, 10.0]];
-let mediaAluno = [];
-let notaAluno = [];
+let matriz = [];
+let diagonalPrincipal = [];
+let diagonalSecundaria = [];
+let somaPrincipal = 0;
+let somaSecundaria = 0;
 
-for(let i = 0; i < matriz.length; i++){
-     let somar = 0;
-     for(let j = 0; j < matriz[i].length; j++){
-          somar += matriz[i][j]
-     }
-     mediaAluno = somar/matriz[i].length; notaAluno[1] = media.toFixed(1)
+
+for (let i = 0; i < 3; i++)
+{
+    matriz[i] = [];
+    for (let j = 0; j < 3; j++)
+    {
+        matriz[i][j] = readlinesync.questionInt('Digite um número');
+    }
 }
-console.log(notaAluno);
+
+for (let i = 0; i < 3; i++) 
+{
+    for (let j = 0; j < 3; j++) 
+    {
+        if (i === j) 
+        {
+            diagonalPrincipal[i] = matriz[i][j];
+            somaPrincipal += matriz[i][j];
+        }
+        if (i + j === 2) 
+        {
+            diagonalSecundaria[i] = matriz[i][j];
+            somaSecundaria += matriz[i][j];
+        }
+    }
+}
+
+console.log('Elementos da Diagonal Principal:');
+console.table(diagonalPrincipal);
+console.log('Elementos da Diagonal Secundária:');
+console.table(diagonalSecundaria);
+console.log('Soma dos Elementos da Diagonal Principal:');
+console.table(somaPrincipal);
+console.log('Soma dos Elementos da Diagonal Secudária:');
+console.table(somaSecundaria);
 
