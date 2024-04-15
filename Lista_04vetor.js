@@ -1,18 +1,25 @@
-const leia = require("readline-sync");
+const readlinesync = require('readline-sync');
 
-let vetorNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let vetor = [];
 let numero;
-let colocacao;
+let posicao;
 
-numero = readline.questionInt("\nDigite um numero inteiro: "); 
+for (let i = 0; i < 10; i++)
+{
+    vetor[i] = readlinesync.questionInt('Digite um número: ');
+}
 
-colocacao = vetorNum.indexOf(numero)
+numero = readlinesync.questionInt('Digite o número que você deseja encontrar: ');
 
-if(colocacao == 2, 5, 1, 3, 4, 9, 7, 8, 10, 6){
-    console.log(`\nO ${numero} esta localizado na posicao: ${colocacao}`);
+posicao = vetor.indexOf(numero);
 
- } else {
-    console.log(`\nO ${numero} nao foi localizado!.`);
- }
+if (posicao >= 0)
+{
+    console.log(`O número ${numero} está localizado na posição: ${posicao}`);
+}
+else
+{
+    console.log(`O número ${numero} não foi encontrado!`);
+}
 
 
